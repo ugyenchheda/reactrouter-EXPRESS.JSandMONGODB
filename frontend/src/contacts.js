@@ -65,8 +65,6 @@ export async function deleteContact(id) {
   }
 }
 
-// ... Remaining code remains unchanged ...
-
 
 
 function set(contacts) {
