@@ -4,7 +4,7 @@ import sortBy from 'sort-by';
 
 const BASE_URL = 'http://localhost:3000'; // Update with your backend URL
 
-const contacts = required('./routes/contactRoutes.js')
+const contacts = require('./routes/contactRoutes.js')
 
 export async function getContacts(query) {
   await fakeNetwork(`getContacts:${query}`);
@@ -22,16 +22,24 @@ export async function getContacts(query) {
   }
 }
 
-export async function createContact() {
+export async function createContact(contactData) {
   await fakeNetwork();
   try {
-    const response = await axios.post(`${BASE_URL}/api/contacts`);
-    return response.data;
+    const response = await axios.post(`${BASE_URL}/contacts`, contactData);
+    const newContact = response.data;
+
+    // Update the local cache or storage
+    const cachedContacts = await getContactsFromCache(); // Assuming you have a function to retrieve contacts from cache
+    const updatedContacts = [...cachedContacts, newContact];
+    await set(updatedContacts);
+
+    return newContact;
   } catch (error) {
     console.error('Error creating contact:', error);
     throw error;
   }
 }
+
 
 export async function getContact(id) {
   await fakeNetwork(`contact:${id}`);

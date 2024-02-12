@@ -3,6 +3,7 @@ import cors from 'cors';
 
 const app = express();
 const PORT = 3000;
+import Contacts from './routes/contactRoutes';
 
 // Use of CORS middleware
 app.use(cors());
@@ -16,3 +17,4 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server Running on port ${PORT}`);
 });
+app.use('/', Contacts)
