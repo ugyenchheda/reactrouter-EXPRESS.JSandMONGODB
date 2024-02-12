@@ -1,4 +1,4 @@
-export const jsonArray = [
+const Data = [
   {
     name: "John Doe",
     email: "john.doe@example.com",
@@ -15,3 +15,5 @@ export const jsonArray = [
   },
   // Add more objects as needed
 ];
+
+module.exports = Data

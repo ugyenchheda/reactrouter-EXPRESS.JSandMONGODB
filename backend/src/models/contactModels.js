@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const contactSchema = new mongoose.Schema({
+    _id: {type: String, required: true},
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true, match: /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/ },
   notes: { type: String, required: true },
@@ -9,6 +10,6 @@ const contactSchema = new mongoose.Schema({
   // Add more properties as needed
 });
 
-const Contact = mongoose.model('Contact', contactSchema);
+const Contact = mongoose.model('lists', contactSchema);
 
 module.exports = Contact;

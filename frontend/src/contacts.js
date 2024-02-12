@@ -2,14 +2,13 @@ import axios from 'axios';
 import { matchSorter } from 'match-sorter';
 import sortBy from 'sort-by';
 
-const BASE_URL = 'http://localhost:3000'; // Update with your backend URL
-
-const contacts = require('./routes/contactRoutes.js')
+const BASE_URL = 'http://localhost:3000'; 
 
 export async function getContacts(query) {
   await fakeNetwork(`getContacts:${query}`);
   try {
-    const response = await axios.get(`${BASE_URL} `);
+    const response = await axios.get(`${BASE_URL}/api/contacts`);
+    console.log(response);
     let contacts = response.data;
     
     if (query) {

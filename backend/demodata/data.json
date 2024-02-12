@@ -1,0 +1,72 @@
+[
+  {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "profile_link": "https://www.linkedin.com/in/johndoe",
+    "image": "https://example.com/images/johndoe.jpg",
+    "description": "Software Developer"
+  },
+  {
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "profile_link": "https://www.linkedin.com/in/janesmith",
+    "image": "https://example.com/images/janesmith.jpg",
+    "description": "Data Scientist"
+  },
+  {
+    "name": "Alex Johnson",
+    "email": "alex.johnson@example.com",
+    "profile_link": "https://www.linkedin.com/in/alexjohnson",
+    "image": "https://example.com/images/alexjohnson.jpg",
+    "description": "UX Designer"
+  },
+  {
+    "name": "Emily White",
+    "email": "emily.white@example.com",
+    "profile_link": "https://www.linkedin.com/in/emilywhite",
+    "image": "https://example.com/images/emilywhite.jpg",
+    "description": "Marketing Specialist"
+  },
+  {
+    "name": "Ryan Brown",
+    "email": "ryan.brown@example.com",
+    "profile_link": "https://www.linkedin.com/in/ryanbrown",
+    "image": "https://example.com/images/ryanbrown.jpg",
+    "description": "Financial Analyst"
+  },
+  {
+    "name": "Megan Green",
+    "email": "megan.green@example.com",
+    "profile_link": "https://www.linkedin.com/in/megangreen",
+    "image": "https://example.com/images/megangreen.jpg",
+    "description": "Product Manager"
+  },
+  {
+    "name": "David Wilson",
+    "email": "david.wilson@example.com",
+    "profile_link": "https://www.linkedin.com/in/davidwilson",
+    "image": "https://example.com/images/davidwilson.jpg",
+    "description": "Graphic Designer"
+  },
+  {
+    "name": "Sophie Turner",
+    "email": "sophie.turner@example.com",
+    "profile_link": "https://www.linkedin.com/in/sophieturner",
+    "image": "https://example.com/images/sophieturner.jpg",
+    "description": "Content Writer"
+  },
+  {
+    "name": "Matthew Miller",
+    "email": "matthew.miller@example.com",
+    "profile_link": "https://www.linkedin.com/in/matthewmiller",
+    "image": "https://example.com/images/matthewmiller.jpg",
+    "description": "Sales Representative"
+  },
+  {
+    "name": "Olivia Hall",
+    "email": "olivia.hall@example.com",
+    "profile_link": "https://www.linkedin.com/in/oliviahall",
+    "image": "https://example.com/images/oliviahall.jpg",
+    "description": "HR Manager"
+  }
+]
