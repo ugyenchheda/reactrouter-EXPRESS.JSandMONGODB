@@ -1,15 +1,16 @@
 const mongoose = require('mongoose');
 
+// Define the schema for a contact
 const contactSchema = new mongoose.Schema({
-    _id: {type: String, required: true},
-  name: { type: String, required: true },
-  email: { type: String, required: true, unique: true, match: /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/ },
-  notes: { type: String, required: true },
-  profile_link: { type: String, required: true },
-  image: { type: String, required: true },
-  // Add more properties as needed
+  name: String,
+  email: String,
+  profile_link: String,
+  image: String,
+  description: String,
 });
 
-const Contact = mongoose.model('lists', contactSchema);
+// Create a Mongoose model named 'Contact' based on the schema
+const Contact = mongoose.model('Contact', contactSchema);
 
+// Export the Contact model
 module.exports = Contact;

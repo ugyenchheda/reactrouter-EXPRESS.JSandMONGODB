@@ -1,50 +1,43 @@
-const express = require('express')
-const cors = require('cors')
-const Contact = require('./models/contactModels')
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const contactRoutes = require('./routes/contactRoutes');
+const Contact = require('./models/contactModels');
 
-const Data = require('../demodata/data')
 const app = express();
 const PORT = 3000;
 
-const { MongoClient } = require('mongodb');
-const mongoose = require("mongoose");
-const contactRoutes = require('./routes/contactRoutes')
-// Use of CORS middleware
 app.use(cors());
-app.use('/api/contacts', contactRoutes)
+app.use(express.json()); // Middleware to parse JSON requests
 
+// MongoDB connection setup
+const mongoURI = 'mongodb://localhost:27017/contactapp';
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, });
 
-const mongoURI = 'mongodb://localhost:27017/contacts';
-
-mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true });
-
-// Check if the connection is successful
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+db.on('error', (error) => {
+  console.error('MongoDB connection error:', error);
+});
+
 db.once('open', () => {
   console.log('Connected to MongoDB');
 });
 
-// Close the MongoDB connection when the server is closed
-app.on('close', () => {
-  db.close();
-  console.log('MongoDB connection closed');
-});
+// Define your API routes
+app.use('/api/contacts', contactRoutes);
 
-
-
-
+// Define a simple route for the root path
 // Defining routes
-app.get('/api/contacts', async(req, res) => {
-    try {
-      const contacts = await Contact.find();
-      console.log({contacts})
-      res.json(Data);
-    } catch (error) {
-      console.error('Error getting contacts:', error);
-      res.status(500).json({ error: 'Internal Server Error' });
-    }
-
+app.get('/api/contacts', async (req, res) => {
+  try {
+    const contacts = await Contact.find();
+    console.log({ contacts });
+    res.json(contacts); // Send the actual contacts instead of the placeholder Data
+  } catch (error) {
+    console.error('Error getting contacts:', error);
+    res.status(500).json({ error: 'Internal Server Error', details: error.message });
+  }
 });
 
 app.listen(PORT, () => {
